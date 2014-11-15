@@ -78,7 +78,7 @@ angular.module('App', [
       url: '/',
       views: {
         '': {
-          templateUrl: 'js/views/home/homeTemplate.html',
+          templateUrl: 'www/js/views/home/homeTemplate.html',
           controller: 'HomeController'
         }
       },
@@ -89,7 +89,7 @@ angular.module('App', [
       url: '/loading',
       views: {
         'view-loading': {
-          templateUrl: 'js/views/loading/loadingTemplate.html',
+          templateUrl: 'www/js/views/loading/loadingTemplate.html',
           controller: 'LoadingController'
         }
       },
@@ -100,7 +100,7 @@ angular.module('App', [
       url: '/login',
       views: {
         '': {
-          templateUrl: 'js/views/login/loginTemplate.html',
+          templateUrl: 'www/js/views/login/loginTemplate.html',
           controller: 'LoginController'
         }
       },
@@ -111,7 +111,7 @@ angular.module('App', [
       url: '/pending',
       views: {
         '': {
-          templateUrl: 'js/views/pending/pendingTemplate.html',
+          templateUrl: 'www/js/views/pending/pendingTemplate.html',
           controller: 'PendingController'
         }
       },
@@ -122,7 +122,7 @@ angular.module('App', [
       url: '/receivers',
       views: {
         '': {
-          templateUrl: 'js/views/receivers/receiversTemplate.html',
+          templateUrl: 'www/js/views/receivers/receiversTemplate.html',
           controller: 'ReceiversController'
         }
       },
@@ -133,7 +133,7 @@ angular.module('App', [
       url: '/results',
       views: {
         '': {
-          templateUrl: 'js/views/results/resultsTemplate.html',
+          templateUrl: 'www/js/views/results/resultsTemplate.html',
           controller: 'ResultsController'
         }
       },
@@ -144,7 +144,7 @@ angular.module('App', [
       url: '/settings',
       views: {
         '': {
-          templateUrl: 'js/views/settings/settingsTemplate.html',
+          templateUrl: 'www/js/views/settings/settingsTemplate.html',
           controller: 'SettingsController'
         }
       },
@@ -155,7 +155,7 @@ angular.module('App', [
       url: '/signup',
       views: {
         '': {
-          templateUrl: 'js/views/signup/signupTemplate.html',
+          templateUrl: 'www/js/views/signup/signupTemplate.html',
           controller: 'SignupController'
         }
       },
