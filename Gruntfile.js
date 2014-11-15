@@ -207,9 +207,9 @@ In uglify - Specify mangle: false to prevent changes to your variable and functi
 //     }
 //   });
 
-//   grunt.registerTask('deploy', [
-//     'mochaTest', 'concat', 'uglify', 'jshint', 'shell'
-//   ]);
+  grunt.registerTask('deploy', [
+    'concat', 'uglify', 'jshint', 'shell'
+  ]);
 
 
 // };
