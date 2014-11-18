@@ -21,7 +21,7 @@ module.exports = function(grunt){ //the "wrapper" function
         separator: ';' //separates each file with a semicolon
       },
       dist: {
-        src: ['www/js/*.js'], //concats all .js files in js folder
+        src: ['www/js/**/*.js'], //concats all .js files in js folder
         dest: 'production/production.js' //puts all concatenated files into production.js in the production folder
       }
     },
@@ -36,7 +36,7 @@ module.exports = function(grunt){ //the "wrapper" function
     },
     //JSHINT is a tool used to check the files are coded correctly
     jshint: {
-      files: ['www/js/*.js', 'www/**/*.html']
+      files: ['www/js/*.js']
     },
     //Watch will emit a watch event when watched files or tasks are modified
     watch: {
@@ -61,6 +61,7 @@ module.exports = function(grunt){ //the "wrapper" function
 
   /*======Custom tasks======u*/
   // grunt.registerTask('karma', ['karma']);
+  grunt.registerTask('deploy', ['concat', 'uglify']);
 }
 
 

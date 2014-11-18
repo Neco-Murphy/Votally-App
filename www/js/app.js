@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -160,7 +160,7 @@ angular.module('App', [
         }
       },
       // authenticate:true
-    })
+    });
 
 
   // if none of the above states are matched, use this as the fallback
