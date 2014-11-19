@@ -1,4 +1,18 @@
-<ion-view hide-nav-bar=true>
+<ion-view>
+  <ion-nav-bar>
+    <h1 class="title">
+      Votally
+    </h1>
+    <ion-nav-buttons side="right">
+      <button class="button-clear" ng-click="routeToPending()" ng-show="pendingCount">
+        Pending 
+        <span class="badge badge-calm">
+          <!-- <i class="ion-paper-airplane"></i> -->
+          {{pendingCount}}
+        </span>
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
   <ion-content scroll=false >
     <!--sets up the main div where the camera image will reside
     is swipable to bring to bring to pending(swiperight) and results(swipeleft) -->

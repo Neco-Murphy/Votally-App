@@ -1,5 +1,5 @@
 angular.module('App.Pending', [])
-.controller('PendingController', function ($scope, $window, $location, ServerRequests, ServerRoutes, Auth) {
+.controller('PendingController', function ($scope, $window, $location, ServerRequests, ServerRoutes, PendingFactory, Auth) {
   
   //======================== helper functions ==============================
 
@@ -34,29 +34,23 @@ angular.module('App.Pending', [])
   var userId = $window.localStorage.getItem('userId');
 
   //get all the pendings for the user
-  var getPending = function(){
-    ServerRequests.post({ userId: userId }, ServerRoutes.getPending)
-      .then(function(response){
-        //  response looks like...
-        // {
-        //  pendingContents: [{
-        //    contentId: number,
-        //    topic: string,
-        //    picture: undefined(url?)
-        //    userId: number,
-        //    userName: string
-        //  }, {}, ...]
-        // } 
-        pendingList = response.contents;
-        checkPending();
-      })
-      //if there is an error getting the pendings, console an error.
-      .catch(function(error){
-        console.error(error);
-      });
-    
-  };
-  getPending();
+  PendingFactory.getPending(userId)
+    .then(function(contents){
+      //  contents looks like...
+      //  [{
+      //    contentId: number,
+      //    topic: string,
+      //    picture: undefined(url?)
+      //    userId: number,
+      //    userName: string
+      //  }, {}, ...]
+      pendingList = contents;
+      checkPending();
+    })
+    //if there is an error getting the pendings, console an error.
+    .catch(function(error){
+      console.error(error);
+    });
 
   //======================== click function ==============================
 

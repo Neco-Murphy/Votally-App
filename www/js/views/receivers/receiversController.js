@@ -1,21 +1,14 @@
 angular.module('App.Receivers', [])
 
-.controller('ReceiversController', function($scope, $location, ReceiversFactory, ServerRequests, ServerRoutes) {
-
-  //delete this part when server working
-  var tempReceivers = [
-      {name: 'Teresa', userId: 12345},
-      {name: 'Satoko', userId: 67894},
-      {name: 'Rich', userId: 23456},
-      {name: 'bace', userId: 24689},
-      {name: 'Bogut', userId: 54711},
-    ];
+.controller('ReceiversController', function($scope, $location, $window, ReceiversFactory, ServerRequests, ServerRoutes) {
 
   $scope.cancelSend = function(){
     //empty the content storage in the ReceiversFactory
     ReceiversFactory.resetContentFromHome();
     $location.path('/'); 
   }
+
+  $scope.allReceivers = {};
 
   //when send button is clicked on receivers page,
   //send current selected receivers (as an array) to Receivers Factory
@@ -37,9 +30,28 @@ angular.module('App.Receivers', [])
     $location.path('/'); 
   };
 
-  //all receivers to be listed in the receivers page
-  $scope.allReceivers = tempReceivers;
-  //$scope.allReceivers = serverRequestFactory.get(serverRoutesFactory.getReceivers);
+  //get the userId from local storage
+  var userId = $window.localStorage.getItem('userId');
+
+  //if there is no stored content in Receivers Factory route back to home
+  console.log(ReceiversFactory.getHomeContent());
+  if (Object.getOwnPropertyNames(ReceiversFactory.getHomeContent()).length === 0){
+    //empty the content storage in the ReceiversFactory just in case
+    ReceiversFactory.resetContentFromHome();
+    
+    //route back to the home page
+    $location.path('/'); 
+
+  } else {
+    //populate a user's friends from the database
+    ServerRequests.post(userId, ServerRoutes.getReceivers)
+      .then(function(response){
+        $scope.allReceivers = response.receivers;
+      })
+      .catch(function(error){
+          console.error(error);
+      });
+  }
 
   //an array to send to the server in the content object
   $scope.modelSelectedReceivers = [];
@@ -49,16 +61,16 @@ angular.module('App.Receivers', [])
 
   //pushes a receiver object to the selectedReceivers array when the receiver is clicked
   $scope.select = function(receiver){
-    if ($scope.viewSelectedReceivers[receiver.userId]){
-      delete $scope.viewSelectedReceivers[receiver.userId];
+    if ($scope.viewSelectedReceivers[receiver.friendId]){
+      delete $scope.viewSelectedReceivers[receiver.friendId];
     } else {
-      $scope.viewSelectedReceivers[receiver.userId] = receiver.name;
+      $scope.viewSelectedReceivers[receiver.friendId] = receiver.username;
     }
   }
 
   //determines if specific receiver is selected (for visual representation in view)
   $scope.isSelected = function(receiver){
-    return !!$scope.viewSelectedReceivers[receiver.userId];
+    return Boolean($scope.viewSelectedReceivers[receiver.friendId]);
   }
   
 });

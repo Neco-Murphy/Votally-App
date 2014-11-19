@@ -20,6 +20,10 @@ angular.module('App.ReceiversFactory', [])
     //resets homeContent to be empty object
     resetContentFromHome: function(){
       homeContent = {};
+    },
+    //check the contents of homeContent
+    getHomeContent: function(){
+      return homeContent;
     }
   };
 });
