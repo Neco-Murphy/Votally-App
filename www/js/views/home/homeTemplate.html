@@ -1,18 +1,24 @@
-<ion-view>
-  <ion-nav-bar>
-    <h1 class="title votally">
-      Votally
-    </h1>
-    <ion-nav-buttons side="right">
-      <button class="button-clear" ng-click="routeToPending()" ng-show="pendingCount">
-        Pending 
-        <span class="badge badge-calm">
-          <!-- <i class="ion-paper-airplane"></i> -->
-          {{pendingCount}}
-        </span>
-      </button>
-    </ion-nav-buttons>
-  </ion-nav-bar>
+<ion-nav-buttons side="left">
+  <button class="button-clear" ng-click="routeToAddFriends()" ng-show="hasFriendRequest">
+    <span class="badge badge-energized">
+      <i class="ion-person-add"></i>
+    </span>
+  </button>
+</ion-nav-buttons>
+<ion-nav-buttons side="right">
+  <button class="button-clear" ng-click="" ng-show="resultCompleteCount">
+    <span class="badge badge-calm">
+      <i class="ion-paper-airplane"></i>
+    </span>
+  </button>
+  <button class="button-clear" ng-click="routeToPending()" ng-show="pendingCount">
+    Pending 
+    <span class="badge badge-calm">
+      {{pendingCount}}
+    </span>
+  </button>
+</ion-nav-buttons>
+<ion-view title="Votally"> <!-- when the logo is ready, replace with <img ...> -->
   <ion-content scroll=false >
     <!--sets up the main div where the camera image will reside
     is swipable to bring to bring to pending(swiperight) and results(swipeleft) -->

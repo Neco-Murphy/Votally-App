@@ -1,0 +1,36 @@
+<ion-view title="Friend Requests" >
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-divider">
+        You have {{requestsAmount}} friend {{sentenceEnd}}
+      </ion-item>
+      <ion-item ng-repeat="request in allRequests"
+                ng-class="{selected: isSelected(receiver)}"
+                ng-click="select(receiver)">
+          {{request.username}}
+      </ion-item>
+      <ion-item>
+        
+      </ion-item>
+      <ion-item class="item-divider">
+        Make A Friend Request
+      </ion-item>
+        <label class="item item-input">
+          <i class="icon ion-paper-airplane placeholder-icon"></i>
+          <input type="text" placeholder="Friend's Name" model="friendName">
+        </label>
+      <ion-item >
+        <button class="button button-calm button-small"
+                ng-click = "makeRequest(friendName)">
+          Make Request
+        </button>
+      </ion-item>
+      <ion-item ng-show="responseExists()">
+        {{requestResponse}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <!-- Footer which contains a button to make the final send -->
+  <ion-footer-bar class="bar-dark">
+  </ion-footer-bar>
+</ion-view>

@@ -2,28 +2,31 @@
 
 angular.module('App.Results', [])
 
+.config(function ($compileProvider) {
+  $compileProvider
+    .imgSrcSanitizationWhitelist(/^\s*(https?|blob|cdvfile|content|ftp|mailto|file|tel):|data:image\//);
+})
+
 //when minify to deploy, want to write controller with [] syntax to "protect" them
 .controller('ResultsController', function($scope, $window, $location, Auth, ServerRequests, ServerRoutes){ //Auth, ServerRequests, ServerRoutes are factories
-  console.log("are you in controller?");
 
   var userId = $window.localStorage.getItem('userId');
-  if(!Auth.loggedIn()){ // checks if the user is loggedIn
-    //Call a post request with the userId to the server to get a list of results with that userId 
-    //results are obtained before continuing
-    ServerRequests.post({userId: userId}, ServerRoutes.getResults).then(function(response){
-      //Expect the ServerRequest to output an array of contents
-
-       //the for loop is to make it so that the recent items are displayed first
+  //Call a post request with the userId to the server to get a list of results with that userId 
+  //results are obtained before continuing
+  ServerRequests.post({ userId: userId }, ServerRoutes.getResults)
+    .then(function(response){
+    //Expect the ServerRequest to output an array of contents
+    //the for loop is to make it so that the recent items are displayed first
       $scope.results = [];
       for(var recent = response.length - 1; recent >= 0 ; recent--){
         $scope.results.push(response[recent]);
       }
+      console.log($scope.results);
     })
-  } else {
-    //user is not logged in
-    //route to login page
-    $location.path('/login')
-  }
+    .catch(function(error){
+      console.log(error);
+    })
+  
 
 ///========= Testing the html ===============///
 
@@ -33,15 +36,9 @@ angular.module('App.Results', [])
   // console.table($scope.results, "scope results")
 
   $scope.routeToHome = function(){
-    console.log("are you at home")
     $location.path('/')
   }
   $scope.routeToSettings = function(){
     $location.path('/settings')
   }
 })
-
-
-
-
-

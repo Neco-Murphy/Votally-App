@@ -5,11 +5,12 @@ angular.module('App.ServerRoutes', [])
   return {
   	//change the routes once our server is deployed.
     sendContent: '/receivers/sendContent',
-    countPending: '/pending/countPending',
     getPending: '/pending/getPending',
     sendVote: '/pending/sendVote',
     getResults: '/results/getResults',
     getReceivers: '/receivers/getContacts',
-    postContent: '/receivers/sendContent'
+    postContent: '/receivers/sendContent',
+    requestFriend: '/friends/requestFriend',
+    checkUpdates: '/home/checkUpdates'
   };
 });

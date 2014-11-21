@@ -15,7 +15,7 @@ angular.module('App.Auth', [])
     })
     //if error in the process, console it 
     .catch(function(error){
-      console.error(error);
+      console.log(error);
     });
   };
   
@@ -68,7 +68,7 @@ angular.module('App.Auth', [])
   };
 
   var loggedIn = function () {
-    return !!$window.localStorage.getItem('loggedIn');
+    return $window.localStorage.getItem('loggedIn');
   };
 
   var logout = function (userId) {

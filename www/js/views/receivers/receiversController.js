@@ -44,12 +44,12 @@ angular.module('App.Receivers', [])
 
   } else {
     //populate a user's friends from the database
-    ServerRequests.post(userId, ServerRoutes.getReceivers)
+    ServerRequests.post({ userId: userId }, ServerRoutes.getReceivers)
       .then(function(response){
         $scope.allReceivers = response.receivers;
       })
       .catch(function(error){
-          console.error(error);
+          console.log(error);
       });
   }
 

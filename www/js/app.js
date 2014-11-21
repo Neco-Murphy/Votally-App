@@ -10,6 +10,8 @@
 angular.module('App', [
   'ionic', 
   //Controllers
+  'App.AddFriends',
+  'App.Friends',
   'App.Home',
   // 'App.Loading',
   'App.Login',
@@ -19,9 +21,12 @@ angular.module('App', [
   'App.Settings',
   'App.Signup',
   //Factories
+  'App.AddFriendsFactory',
+  'App.FriendsFactory',
   'App.ServerRequests',
   'App.ServerRoutes',
   'App.Auth',
+  'App.HomeFactory',
   'App.Camera',
   'App.Directives',
   'App.ReceiversFactory',
@@ -45,19 +50,20 @@ angular.module('App', [
 
   //TODO! Change the state for unauthenticated users
   $rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams){
-      if (toState.authenticate && !Auth.isAuth()){
-        // User isn’t authenticated
-        $state.transitionTo('tab.account');
-        event.preventDefault(); 
-      }
-    });
+    //if the authenticate is set to true and the loggedIn status is false, route it cback to login view
+    if(toState.authenticate && !(Auth.loggedIn() === 'true')){
+      $state.transitionTo('login');
+      event.preventDefault(); 
+    }
+  });
 })
 
 .config(function($compileProvider, $stateProvider, $urlRouterProvider) {
 
   //Retrieves and overwrites the default regexp that is used to whitelist safe urls during img sanitization
   //Normalizes any url about to be used in img(src) and returns an absolute path
-  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+  $compileProvider
+    .imgSrcSanitizationWhitelist(/^\s*(https?|blob|cdvfile|content|ftp|mailto|file|tel):|data:image\//);
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -65,16 +71,29 @@ angular.module('App', [
   // Each state's controller can be found in their respective Controller file in their view directory
   $stateProvider
 
-    //TODO Do we need this block?
-
-    // setup an abstract state for the tabs directive
-    // .state('tab', {
-    //   url: '/tab',
-    //   abstract: true,
-    //   templateUrl: 'templates/tabs.html',
-    // })
-
     // Each tab has its own nav history stack:
+    .state('addFriends', {
+      url: '/add-friends',
+      views: {
+        '': {
+          templateUrl: 'js/views/addFriends/addFriendsTemplate.html',
+          controller: 'AddFriendsController'
+        }
+      },
+      authenticate: true
+    })
+
+    .state('friends', {
+      url: '/friends',
+      views: {
+        '': {
+          templateUrl: 'js/views/friends/friendsTemplate.html',
+          controller: 'FriendsController'
+        }
+      },
+      authenticate: true
+    })
+
     .state('home', {
       url: '/',
       views: {
@@ -83,7 +102,7 @@ angular.module('App', [
           controller: 'HomeController'
         }
       },
-      authenticate:true
+      authenticate: true
     })
 
     .state('loading', {
@@ -94,7 +113,7 @@ angular.module('App', [
           controller: 'LoadingController'
         }
       },
-      authenticate:true
+      authenticate: false
     })
 
     .state('login', {
@@ -105,7 +124,7 @@ angular.module('App', [
           controller: 'LoginController'
         }
       },
-      // authenticate:true
+      authenticate: false
     })
 
     .state('pending', {
@@ -116,7 +135,7 @@ angular.module('App', [
           controller: 'PendingController'
         }
       },
-      // authenticate:true
+      authenticate: true
     })
 
     .state('receivers', {
@@ -127,7 +146,7 @@ angular.module('App', [
           controller: 'ReceiversController'
         }
       },
-      authenticate:true
+      authenticate: true
     })
     
     .state('results', {
@@ -138,7 +157,7 @@ angular.module('App', [
           controller: 'ResultsController'
         }
       },
-      // authenticate:true
+      authenticate: true
     })
 
     .state('settings', {
@@ -149,7 +168,7 @@ angular.module('App', [
           controller: 'SettingsController'
         }
       },
-      // authenticate:true
+      authenticate: true
     })
 
     .state('signup', {
@@ -160,9 +179,8 @@ angular.module('App', [
           controller: 'SignupController'
         }
       },
-      // authenticate:true
+      authenticate: false
     })
-
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/');

@@ -1,0 +1,75 @@
+
+
+  <ion-side-menus>
+  <!-- Center content -->
+    <ion-side-menu-content>
+      <ion-view title="My Friends">
+        <ion-nav-bar>
+          <ion-nav-buttons side="left">
+            <button class="button icon ion-navicon-round" menu-toggle="left"></button>
+            <!-- ng-click="showSettings()" -->
+          </ion-nav-buttons>
+          <ion-nav-buttons side="right">
+            <button class="button icon ion-android-add-contact" ng-click="routeToAddFriend()"></button>
+          </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <ion-content on-swipe-left="swiping('left')">
+          <label class="item item-input">
+            <i class="icon ion-android-search placeholder-icon"></i>
+            <input type="text" placeholder="Search Friends" ng-model="friendSearch">
+          </label>
+          <ion-list>
+            <ion-item ng-repeat="friend in allFriends | filter: friendSearch">
+                {{friend.username}}
+            </ion-item>
+          </ion-list>
+          <!--sets up the main div where the camera image will reside
+          is swipable to bring to bring to pending(swiperight) and results(swipeleft) -->
+          
+        </ion-content>
+
+
+
+
+
+        <!-- Actual Footer which contains an icon for taking pictures and 
+        contains upload and send buttons -->
+      <!--   <ion-footer-bar class="bar-dark">
+          <button class="button button-stable button-calm button-outline"
+                  ng-click="getPhoto('uploadPicture')">
+            Upload
+          </button>
+          <h1 class="title"><div class="ion-ios7-camera shutter" ng-click="getPhoto('takePicture')"></div></h1>
+          <button class="button button-stable button-balanced button-outline"
+                  ng-click="send()">
+            Send
+          </button>
+        </ion-footer-bar> -->
+        <ion-footer-bar class="bar-dark">
+        </ion-footer-bar>
+      </ion-view>
+    </ion-side-menu-content>
+
+    <!-- Left menu -->
+    <ion-side-menu side="left" ng-controller="SettingsController">
+      <ion-header-bar class="bar-dark">
+        <h1 class="title">Settings</h1>
+      </ion-header-bar>
+      <ion-content scroll=false>
+        <ion-list>
+          <ion-item class="item" ng-repeat="setting in Settings"
+                    ng-click="setting.hovers && setting.action()"
+                    ng-class="{settings: setting.isDivider, highlight: setting.hovers && hover}"
+                    
+                    ng-mouseenter="hover = true"
+                    ng-mouseleave="hover = false">
+              {{setting.title}}
+          </ion-item>
+        </ion-list>
+      </ion-content>
+        <ion-footer-bar class="bar-dark">
+        </ion-footer-bar>
+    </ion-side-menu>
+
+  </ion-side-menus>

@@ -24,10 +24,6 @@ angular.module('App.Pending', [])
 
   //======================== initialize ==============================
 
-  // //if not loggedIn, send the user to logIn
-  // if(!Auth.loggedIn()){
-  //  $location.path('/logIn');
-  // }
   var contentId;
   var pendingList;
   //get the userId info from local storage and set it as a local variable
@@ -49,7 +45,7 @@ angular.module('App.Pending', [])
     })
     //if there is an error getting the pendings, console an error.
     .catch(function(error){
-      console.error(error);
+      console.log(error);
     });
 
   //======================== click function ==============================
@@ -68,7 +64,7 @@ angular.module('App.Pending', [])
       })
       //if there is an error on voting, console an error.
       .catch(function(error){
-        console.error(error);
+        console.log(error);
       });
   };
 
