@@ -76,7 +76,7 @@ angular.module('App', [
       url: '/add-friends',
       views: {
         '': {
-          templateUrl: 'js/views/addFriends/addFriendsTemplate.html',
+          templateUrl: 'www/js/views/addFriends/addFriendsTemplate.html',
           controller: 'AddFriendsController'
         }
       },
@@ -87,7 +87,7 @@ angular.module('App', [
       url: '/friends',
       views: {
         '': {
-          templateUrl: 'js/views/friends/friendsTemplate.html',
+          templateUrl: 'www/js/views/friends/friendsTemplate.html',
           controller: 'FriendsController'
         }
       },
