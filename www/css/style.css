@@ -1,4 +1,45 @@
 /* Empty. Add your own CSS if you like */
+*{
+  font-family: 'Josefin Sans', sans-serif;
+  color: #35404F;
+}
+
+.votally-red{
+  color: #DB3340;
+}
+
+.votally-green{
+  color: #1FDA9A;
+}
+
+.votally-blue{
+  color: #35404F;
+}
+
+.votally-cream{
+  color: #F7EAC8;
+}
+
+.votally-back-red{
+  background-color: #DB3340;
+}
+
+.votally-back-green{
+  background-color: #1FDA9A;
+}
+
+.votally-back-blue{
+  background-color: #35404F;
+}
+
+.votally-back-cream{
+  background-color: #F7EAC8;
+}
+
+.bar-footer{
+  height: 55px;
+}
+
 
 .shutter{
   font-size: 40px;
@@ -51,19 +92,31 @@
 
 .senderName{
   text-align: center;
+  margin: 20px;
   padding: 10px;
   height: 34px;
   font-size: 30px;
 }
 
-.pendingContent{
-  background-color: white;
+.pendigPolaroid{
+  margin: 30px;
 }
 
-.polaroid-text{
-  text-align: center;
-  font-size: 24px;
+#pending-skip{
+  font-family: 'Josefin Sans', sans-serif;
+}
 
+.pending-button{
+  font-family: 'Josefin Sans', sans-serif !important;
+  font-weight: bold !important;
+}
+
+.no-button{
+  color: #DB3340 !important;
+}
+
+.yes-button{
+  color: #1FDA9A !important;
 }
 
 /*============FOR RECEIVERS VIEW TEMPLATE=============*/
@@ -84,17 +137,191 @@
 
 /*============FOR RESULTS VIEW TEMPLATE=============*/
 
-.topic {
+a img {
+  border: 1px solid #BBB;
+  padding: 2px;
+  margin: 10px 20px 10px 0;
+  vertical-align: top;
+}
+
+a img.last {
+  margin-right: 0;  
+}
+
+.polaroid_box {
+  margin:20px 0 0px 25px;
+}
+
+ul.polaroids {
+  /*width: 95%;*/
+  margin: 0px 0px 18px 0px;
+  /*float: left;*/
+  list-style: none;
+  padding: 20px;
+}
+li.polaroids {
   display: block;
 }
-.pictureframe{
-  display: inline;
+.polaroids a {
+  background: #fff;
+  display: block;
   float: left;
+  margin: 0 0 27px 30px;
+  width: auto;
+  padding: 10px 10px 15px;
+  text-align: center;
+  font-family: "Marker Felt", sans-serif;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+  -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+  -webkit-transform: rotate(-2deg);
+  -webkit-transition: -webkit-transform .15s linear;
+  -moz-transform: rotate(-2deg);
 }
-.votes {
-  display: inline;
-  float: left;
+.polaroids img {
+  display: block;
+  height: 110px;
+  width: 120px;
+  margin: 10px 10px 10px 0px;
 }
+/*.polaroids img.small {
+  height: 100px;
+  width: 100px;
+}*/
+
+.polaroids a:after {
+  content: attr(title);
+}
+
+.polaroids li:nth-child(even) a {
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+}
+.polaroids li:nth-child(3n) a {
+  -webkit-transform: none;
+  position: relative;
+  top: -5px;
+  -moz-transform: none;
+}
+.polaroids li:nth-child(5n) a {
+  -webkit-transform: rotate(5deg);
+  position: relative;
+  right: 5px;
+  -moz-transform: rotate(5deg);
+}
+.polaroids li:nth-child(8n) a {
+  position: relative;
+  right: 5px;
+  top: 8px;
+}
+.polaroids li:nth-child(11n) a {
+  position: relative;
+  left: -5px;
+  top: 3px;
+}
+
+li.polaroids  a:hover{
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+  -moz-box-shadow: 0 3px 6px rgba(0,0,0,.5);
+  position: relative;
+  z-index: 5;
+}
+
+.polaroidframe {
+  clear:left ;
+  height: 300px;
+  width: 300px;
+  position: relative;
+  float:left;
+
+}
+
+.yesnocontainer {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  /*background-color: blue;*/
+  float:left;
+  margin: 0px 0px 0px 0px;
+  position: relative;
+  clear: right;
+
+}
+
+.yesnostamp{
+  width: 300px;
+  height: 150px;
+  display: block;
+  /*background-color: orange;*/
+  position: absolute;
+  bottom: 0;
+}
+
+.stamp{
+  position: absolute;
+  top: 20px;
+  left: 95px;
+}
+.yesnobargraph{
+  width: 300px;
+  height: 150px
+  display: block;
+  position: relative;
+  top: 150px;
+  left: 80px;
+}
+.yesnobaraxis {
+  width: 150px;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+  bottom: 4px;
+}
+
+
+.yesnobargraph ul {
+  margin: 0px 0px 0px 0px;
+  list-style: none;
+  position: absolute;
+  bottom: 0;
+}
+
+.yesnobargraph li {
+  display: inline-block;
+  position: relative;
+}
+
+.yesnobar {
+  margin: 0px 0px 0px 0px;
+  width: auto;
+  padding: 1px 1px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+  -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+  position: absolute;
+  bottom: 0px;
+}
+
+.yesbar{
+  width: 65px;
+  background-color: green;
+  position: relative;
+}
+
+.nobar{
+  width: 65px;
+  background-color: red;
+  position: relative;
+  left: 70px;
+}
+
+
 
 /*============FOR SETTINGS VIEW=============*/
 
@@ -112,4 +339,51 @@
   font-weight: bold;
 }
 
+/*============FOR ADD FRIENDS VIEW=============*/
+.friend-request {
+  padding-right: 12px;
+}
 
+
+/*.inline-button {
+  float: left;
+  clear: both;
+}*/
+
+/*============FOR LOGIN & SIGNUP VIEW=============*/
+.login-logo, .signup-logo{
+  margin: 20px 20%;
+}
+
+.login-form input, .signup-form input{
+  margin: 5px;
+  margin-right: 20px;
+  width: 90%;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+
+.login-form .error, .signup-form .error{
+  color: #DB3340; /*votally-red*/
+}
+
+.login-form label, .signup-form label{
+  background-color: #F7EAC8; /*votally-cream*/
+  border: none;
+  padding: 0;
+  padding-left: 20px;
+}
+
+.login-form button, .signup-form button{
+  background-color: #1FDA9A; /*votally-green*/
+  margin: 0 auto;
+  width: 50%;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+}
+
+.login-form button.sign-up{
+  background-color: #f7bd7a; /*votally-cream*/
+}

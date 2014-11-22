@@ -1,36 +1,49 @@
 <ion-view title="Friend Requests" >
+  <ion-nav-buttons side="left">
+      <button class="button icon ion-ios7-undo" ng-click="routeBack()">
+      </button>
+  </ion-nav-buttons>
   <ion-content>
     <ion-list>
-      <ion-item class="item-divider">
-        You have {{requestsAmount}} friend {{sentenceEnd}}
-      </ion-item>
-      <ion-item ng-repeat="request in allRequests"
-                ng-class="{selected: isSelected(receiver)}"
-                ng-click="select(receiver)">
-          {{request.username}}
-      </ion-item>
-      <ion-item>
-        
-      </ion-item>
+
+    <!-- Form area to make a new friend request -->
       <ion-item class="item-divider">
         Make A Friend Request
       </ion-item>
-        <label class="item item-input">
+        <form class="item item-input friend-request">
           <i class="icon ion-paper-airplane placeholder-icon"></i>
-          <input type="text" placeholder="Friend's Name" model="friendName">
-        </label>
-      <ion-item >
-        <button class="button button-calm button-small"
-                ng-click = "makeRequest(friendName)">
-          Make Request
-        </button>
-      </ion-item>
+          <input type="text" placeholder="Friend's Name" ng-model="friendName">
+          <button class="button button-calm button-small"
+                  type="button"
+                  ng-click = "makeRequest(friendName)">
+            Make Request
+          </button>
+        </form>
       <ion-item ng-show="responseExists()">
         {{requestResponse}}
       </ion-item>
+
+      <!-- List of all pending friend requests -->
+      <ion-item class="item-divider">
+        You have {{requestersAmount}} pending friend {{sentenceEnd}}
+      </ion-item>
+      <ion-item ng-repeat="requester in allRequesters">
+          {{requester.requesterName}}
+          <button class="button button-balanced button-small"
+                  type="button"
+                  ng-click = "acceptFriend(requester.requesterId, $index)">
+            Accept
+          </button>
+          <button class="button button-assertive button-small"
+                  type="button"
+                  ng-click = "declineFriend(requester.requesterId, $index)">
+            Decline
+          </button>
+      </ion-item>
     </ion-list>
   </ion-content>
-  <!-- Footer which contains a button to make the final send -->
+
+  <!-- Footer just for looks -->
   <ion-footer-bar class="bar-dark">
   </ion-footer-bar>
 </ion-view>

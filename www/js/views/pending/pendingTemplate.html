@@ -1,25 +1,29 @@
 <ion-view hide-nav-bar=true>
-	<ion-content>
+	<ion-content class="votally-back-cream">
 		<div class="pendingContainer" on-swipe-up="sendVote(0)">
 			<div class="senderName"><span>{{sender}}</span></div>
-			<div class="polaroid-pic pendingContent" >
-				<img set-image image="pictureUrl">
+
+			<div class="polaroids pendingPolaroid">
+				<a title="{{topic}}">
+					<img set-image image="pictureUrl" style="height:auto; width:auto; max-width:350px; max-height:400px;" alt="{{topic}}">
+				</a>
 			</div>
-			<div class="bar-footer">
-				<div class="polaroid-text"><span>{{topic}}</span></div>
-			</div>
+
+
 		</div><!-- ================ CONTAINER-END ================-->
 	</ion-content>
 			
 	<!-- ================ FOOTER ================-->
-	<ion-footer-bar class="bar bar-footer bar-dark">
+	<ion-footer-bar class="bar bar-footer votally-back-cream" on-swipe-up="sendVote(0)">
 		<!-- ================ BUTTONS for NO/SKIP/YES ================-->
-		<button class="button button-assertive" ng-click="sendVote(-1)">
-			<i class="icon ion-ios7-paw vote-no"></i>NO
+		<button class="button button-clear pending-button no-button" ng-click="sendVote(-1)">
+			<i class="icon ion-ios7-paw vote-no votally-red"></i> NO
 		</button>
-		<h1 class="title">swipe up to skip</h1>
-		<button class="button button-balanced pull-right" ng-click="sendVote(1)">
-			<i class="icon ion-ios7-paw vote-yes"></i>YES
+		<h1 class="title">
+			<p id="pending-skip">swipe up to skip</p>
+		</h1>
+		<button class="button button-clear pending-button yes-button votally-green pull-right" ng-click="sendVote(1)">
+			YES <i class="icon ion-ios7-paw vote-yes votally-green"></i>
 		</button><!-- ================ BUTTONS for NO/SKIP/YES -END ================-->
 	</ion-footer-bar><!-- ================ FOOTER-END ================-->
 </ion-view>

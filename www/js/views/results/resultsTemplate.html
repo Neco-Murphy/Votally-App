@@ -13,19 +13,42 @@
     </ion-nav-buttons>
   </ion-nav-bar>
   <ion-content>
-    <div class="resultsContainer">
-      <div class = "list"> 
-        <a ng-repeat="result in results" class="item item-thumbnail-left">
-          <h1 class="topic">{{result.topic}}</h1>
-          <div class="pictureframe">
-            <img class ="picture" style="height:auto; width:auto; max-width:300px; max-height:300px;" ng-src="{{result.data}}">
+    <div class="polaroid_box">
+      <ul class="polaroids">
+        <li class="polaroids row" ng-repeat="result in results">
+          <div class="polaroidframe">
+            <a class="col" href="" title="{{result.topic}}">
+              <img style="height:auto; width:auto; max-width:200px; max-height:200px;" ng-src ="{{result.data}}" alt="{{result.topic}}">
+            </a>
           </div>
-          <div class="votes">
-            <h2 class="yes">Yes!{{result.yes}}</h2>
-            <h2 class="no"> No!{{result.no}}</h2> 
+          <div class="yesnocontainer">
+            <div class="yesnobargraph">
+              <ul>
+                <li>
+                  <div class="yesnobar">
+                    <div class="yesbar" style="height:{{result.yes * 10}}px;"> {{result.yes}}
+                    </div>
+                  </div>
+                </li>
+                <li> 
+                  <div class="yesnobar">
+                    <div class="nobar" style="height: {{result.no *10}}px">{{result.no}}
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="yesnobaraxis"></div>      
+            </div>
+            <div class="yesnostamp">
+              <div class="stamp">
+                <img style="height:auto; width:auto; max-width:100px; max-height:100px;" ng-src ="http://4.bp.blogspot.com/-pAVXNjUB1Z8/UQvHl9f0P7I/AAAAAAAAICI/gFnnItEzMck/s1600/truestamp-300x300.png" alt="{{result.topic}}">
+              </div>
+            </div>
           </div>
-        </a>
-      </div>
+        </li>
+      </ul>
     </div>
+
+              
   </ion-content>
 </ion-view>

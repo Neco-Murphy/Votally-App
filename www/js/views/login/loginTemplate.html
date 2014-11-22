@@ -1,12 +1,10 @@
-<ion-view>
-  <ion-nav-bar>
-    <h1 class="title">
-      <i class="icon ion-log-in"></i>
-      Login
-    </h1>
-  </ion-nav-bar>
-  <ion-content>
-    <form name="loginForm" novalidate ng-submit="logIn(usernameInput, passwordInput)">
+<ion-view hide-nav-bar=true>
+  <ion-content class="votally-back-cream">
+    <div class='login-logo'>
+      <!-- replace with the logo -->
+      <img src="http://i1.kym-cdn.com/entries/icons/original/000/011/365/Grumpy-Cat.jpg">
+    </div>
+    <form class="login-form" name="loginForm" novalidate ng-submit="logIn(usernameInput, passwordInput)">
       <div class="list">
         <div class="error-container" ng-show="showLoginError">
           <small class="error">
@@ -23,7 +21,7 @@
             </small>
         </div>
         <label class="item item-input">
-          <i class="icon ion-locked"></i>
+          <i class="icon ion-key"></i>
           <input ng-model="passwordInput" name="password" placeholder=" Password" type="password" required>
         </label>
         <div class="error-container" ng-show="loginForm.password.$invalid">
@@ -32,13 +30,13 @@
             </small>
         </div>
         <label class="item">
-          <button class="button button-block button-positive" type="submit">
+          <button class="button button-block" type="submit">
             login
           </button>
         </label>
         <label class="item">
-          <span>Don't have an account?</span>
-          <button class="button button-block button-calm" ng-click="signUp()">
+          <p>Don't have an account?</p>
+          <button class="button button-block sign-up" ng-click="signUp()">
             signup
           </button>
         </label>
