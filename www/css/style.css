@@ -81,10 +81,11 @@
   background-color: #000;
   display: block;
   height: 360px;
-  margin: 10px 10px 10px 0px;
+  margin: 10px 10px 0px 0px;
 }
 
 .polaroid-text{
+  margin-top: 10px;
   border: none;
 }
 
