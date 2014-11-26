@@ -1,6 +1,6 @@
 angular.module('App.Friends', [])
 
-.controller('FriendsController', function($scope, $window, $location, $ionicSideMenuDelegate, FriendsFactory, ServerRequests, ServerRoutes, Auth){
+.controller('FriendsController', function($scope, $window, $location, $ionicSideMenuDelegate, ReceiversFactory, ServerRequests, ServerRoutes, Auth){
 
   $scope.swiping = function(direction){
     if (direction === 'left'){
@@ -20,6 +20,15 @@ angular.module('App.Friends', [])
     $ionicSideMenuDelegate.toggleLeft();
   };
 
-  $scope.allFriends = FriendsFactory.tempFriends;
+  //get the userId from local storage
+  var userId = $window.localStorage.getItem('userId');
+
+  ServerRequests.post({ userId: userId }, ServerRoutes.getReceivers)
+      .then(function(response){
+        $scope.allFriends = response.receivers;
+      })
+      .catch(function(error){
+          console.log(error);
+      });
 
 })

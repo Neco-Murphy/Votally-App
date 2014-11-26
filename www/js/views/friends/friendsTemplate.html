@@ -3,22 +3,40 @@
   <ion-side-menus>
   <!-- Center content -->
     <ion-side-menu-content>
-      <ion-view title="My Friends">
-        <ion-nav-bar>
+      <ion-view hide-nav-bar=true>
+
+
+        <!-- <ion-nav-bar>
           <ion-nav-buttons side="left">
             <button class="button icon ion-navicon-round" menu-toggle="left"></button>
-            <!-- ng-click="showSettings()" -->
+           
           </ion-nav-buttons>
           <ion-nav-buttons side="right">
-            <button class="button icon ion-android-add-contact" ng-click="routeToAddFriend()"></button>
+            <button class="button icon ion-person-add" ng-click="routeToAddFriend()"></button>
           </ion-nav-buttons>
-        </ion-nav-bar>
+        </ion-nav-bar> -->
 
-        <ion-content on-swipe-left="swiping('left')">
-          <label class="item item-input">
-            <i class="icon ion-android-search placeholder-icon"></i>
-            <input type="text" placeholder="Search Friends" ng-model="friendSearch">
-          </label>
+      
+    
+
+
+        <ion-content on-swipe-left="swiping('left')" class="votally-back-cream">
+          <button class="button button-clear icon ion-navicon-round" menu-toggle="left" style="float: left; display: inline;">
+          </button>
+
+          <button class="button button-clear icon ion-person-add" menu-toggle="left" style="float: right; display: inline;" ng-click="routeToAddFriend()">
+          </button>
+          <div class="sender-name"><span>My Friends</span></div>
+
+
+
+          <div class="friend-search">
+            <label class="item item-input">
+              <i class="icon ion-search placeholder-icon"></i>
+              <input type="text" placeholder="Search Friends" ng-model="friendSearch">
+            </label>
+          </div>
+          
           <ion-list>
             <ion-item ng-repeat="friend in allFriends | filter: friendSearch">
                 {{friend.username}}
@@ -46,8 +64,8 @@
             Send
           </button>
         </ion-footer-bar> -->
-        <ion-footer-bar class="bar-dark">
-        </ion-footer-bar>
+        <!-- DONT THINK WE NEED THIS FOOTER BAR<ion-footer-bar class="bar-dark">
+        </ion-footer-bar> --> 
       </ion-view>
     </ion-side-menu-content>
 

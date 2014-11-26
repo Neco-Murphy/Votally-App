@@ -83,7 +83,7 @@ angular.module('App.Results', [])
 
 ///========= Testing the html ===============///
 
-// var results = [{topic: "kitty", data: 'http://petlifepro.com/wp-content/uploads/2014/08/playful-kitten-6683.jpg', userId: 3, userName: 'treelala', yes: 4, no: 4, contentId: 100}, {topic: "akita", data: 'http://media-cache-ec0.pinimg.com/736x/b7/10/b4/b710b479efe2f9489eb08dadf53d8ff0.jpg', userId: 2, userName: 'satoko', yes: 5, no: 4, contentId: 101}, {topic: "alaskan malamute", data: "http://www.dogbreedslist.info/uploads/allimg/dog-pictures/Alaskan-Malamute-3.jpg", userId: 3, userName: 'bace', yes: 4, no: 1, contentId: 102}, {topic: "pomeranian", data: 'http://paranerds.com/wp-content/uploads/Boo-Cutest-Pomeranian-Puppy-in-the-World.jpg', userId: 1, userName: 'rich', yes: 1, no: 2, contentId: 103}]
+// var results = [{topic: "kitty", data: 'http://petlifepro.com/wp-content/uploads/2014/08/playful-kitten-6683.jpg', userId: 3, userName: 'treelala', yes: 4, no: 4, contentId: 100}, {topic: "akita", data: 'http://media-cache-ec0.pinimg.com/736x/b7/10/b4/b710b479efe2f9489eb08dadf53d8ff0.jpg', userId: 2, userName: 'satoko', yes: 5, no: 4, contentId: 101}, {topic: "alaskan malamute", data: "http://www.dogbreedslist.info/uploads/allimg/dog-pictures/Alaskan-Malamute-3.jpg", userId: 3, userName: 'bace', yes: 4, no: 1, contentId: 102}, {topic: "should i get this?", data: 'http://www.afunpictures.com/wp-content/uploads/2014/08/puppies-wallpaper-for-iphone-7-266x400.jpg', userId: 1, userName: 'rich', yes: 3, no: 2, contentId: 103}]
 //     //the for loop is to make it so that the recent items are displayed first
 //   $scope.results = [];
   
@@ -109,11 +109,11 @@ angular.module('App.Results', [])
 
 //     $scope.results.push(results[recent]);
 
-//     //set correct bar for each result 
+    //set correct bar for each result 
 
 
     
-//     console.log(results, "results")
+  //   console.log(results, "results")
   // }
 
 
