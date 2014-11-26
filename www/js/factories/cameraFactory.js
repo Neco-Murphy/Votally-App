@@ -3,13 +3,13 @@ angular.module('App.Camera', [])
 .factory('Camera', function ($q) {
 
   var takePicture = {
-    quality: 100,
+    quality: 50,
     saveToPhotoAlbum: false,
     destinationType: 0
   };
 
   var uploadPicture = {
-    quality: 100,
+    quality: 50,
     saveToPhotoAlbum: false,
     destinationType: 0,
     sourceType: 0
