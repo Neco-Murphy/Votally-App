@@ -2,6 +2,7 @@ angular.module('App.Signup', [])
   .controller('SignupController', function ($scope, $window, $location, Auth){
   	$scope.usernameInput;
   	$scope.passwordInput;
+    $scope.confirmInput;
     $scope.emailInput;
     $scope.showSignupError = false;
     $scope.signupError;

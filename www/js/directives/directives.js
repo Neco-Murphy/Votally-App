@@ -13,19 +13,27 @@ angular.module('App.Directives', [])
     }
   })
 
-  .directive('compareInput', function(){
-    return {
-      require: 'ngModel',
+  .directive('compareInput', ['$parse', function ($parse) {
+   return {
+      restrict: 'A',
       scope: {
-        otherModelValue : '=compareInput'
+        matchTarget: '=',
       },
-      link: function(scope, element, attributes, ngModel){
-        ngModel.$validators.compareInput = function(modelValue){
-          return modelValue == scope.otherModelValue;    
-        }
-        scope.$watch('otherModelValue', function(){
-          ngModel.$validate();
-        })
+      require: 'ngModel',
+      link: function link(scope, element, attributes, control) {
+        var validator = function (value) {
+          control.$setValidity('match', value === scope.matchTarget);
+          return value;
+        };
+   
+        control.$parsers.unshift(validator);
+        control.$formatters.push(validator);
+        
+        // This is to force validator when the original password gets changed
+        scope.$watch('matchTarget', function(newVal, oldVal) {
+          validator(control.$viewValue);
+        });
+
       }
-    }
-  });
+    };
+  }]);

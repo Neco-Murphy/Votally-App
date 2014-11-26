@@ -1,6 +1,6 @@
 angular.module('App.Auth', [])
 
-.factory('Auth', function ($http, $location, $window) {
+.factory('Auth', function ($http, $location, $window, ServerRoutes) {
 
   //===================HELPER FUNCTION========================
 
@@ -26,7 +26,7 @@ angular.module('App.Auth', [])
       password: password
     };
     //change the routes once our server is deployed.
-    return auth(userInfo, '/user/login')
+    return auth(userInfo, ServerRoutes.userLogin)
       .then(function(response){
         if(response.error){
           //if there is an error property in the response, return the error
@@ -50,7 +50,7 @@ angular.module('App.Auth', [])
       email: email
     };
     //change the routes once our server is deployed.
-    return auth(userInfo, '/user/signup')
+    return auth(userInfo, ServerRoutes.userSignup)
       .then(function(response){
         //if there is an error property in the response, return the error
         if(response.error){
@@ -73,7 +73,8 @@ angular.module('App.Auth', [])
 
   var logout = function (userId) {
     //Auth sends an http request to the database
-    auth({userId: userId}, '/user/logout').then(function(){
+    auth({userId: userId}, ServerRoutes.userLogout)
+      .then(function(){
     //When logout button is clicked, set local storage object to be loggedIn = false and userId = undefined 
       $window.localStorage.setItem('loggedIn', false);
       $window.localStorage.setItem('userId', undefined);

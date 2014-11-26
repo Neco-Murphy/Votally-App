@@ -1,5 +1,5 @@
-<ion-view>
-  <ion-nav-bar>
+<ion-view hide-nav-bar=true>
+  <!-- <ion-nav-bar class="votally-back-cream">
     <h1 class="title">
       <i class="icon ion-stats-bars"></i>
       Results
@@ -8,43 +8,54 @@
       <button class="button icon ion-ios7-undo" ng-click="routeToHome()">
       </button>
     </ion-nav-buttons>
-    <ion-nav-buttons side="right">
-      <button class="button icon ion-gear-a" ng-click="routeToSettings()"></button>
-    </ion-nav-buttons>
   </ion-nav-bar>
-  <ion-content>
+ -->
+  
+  <ion-content class="votally-back-cream">
+    <button class="button button-clear icon ion-ios7-undo" style="float: left; display: inline;" ng-click="routeToHome()">
+    </button>
+    <div class="senderName"><span>Results</span></div>
+   
     <div class="polaroid_box">
       <ul class="polaroids">
         <li class="polaroids row" ng-repeat="result in results">
           <div class="polaroidframe">
-            <a class="col" href="" title="{{result.topic}}">
-              <img style="height:auto; width:auto; max-width:200px; max-height:200px;" ng-src ="{{result.data}}" alt="{{result.topic}}">
+            <a class="col" title="{{result.topic}}">
+              <img style="height:auto; width:auto; max-width:100%; max-height:50%;" ng-src="{{result.data}}" alt="{{result.topic}}">
             </a>
           </div>
+
           <div class="yesnocontainer">
+
             <div class="yesnobargraph">
-              <ul>
-                <li>
-                  <div class="yesnobar">
-                    <div class="yesbar" style="height:{{result.yes * 10}}px;"> {{result.yes}}
-                    </div>
+              <div id="yaxis">
+                <div id="apps">
+                  <p>Yes</p>
+                  <p>No</p>
+                </div>
+                
+                <div class="grid">
+                  <div class="{{result.yesbarclass}}"><div class="inner votally-back-green"></div></div>
+                  <div class="{{result.nobarclass}}"><div class="inner votally-back-red"></div></div>
+
+                  <div id="scale">
+                    <p class="zero">0%</p>
+                    <p class="two">50%</p>
+                    <p class="four">100%</p>
                   </div>
-                </li>
-                <li> 
-                  <div class="yesnobar">
-                    <div class="nobar" style="height: {{result.no *10}}px">{{result.no}}
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <div class="yesnobaraxis"></div>      
-            </div>
-            <div class="yesnostamp">
-              <div class="stamp">
-                <img style="height:auto; width:auto; max-width:100px; max-height:100px;" ng-src ="http://4.bp.blogspot.com/-pAVXNjUB1Z8/UQvHl9f0P7I/AAAAAAAAICI/gFnnItEzMck/s1600/truestamp-300x300.png" alt="{{result.topic}}">
+                </div>
               </div>
             </div>
+
+          <div class="yesnostamp">
+              <div class="stamp">
+                <img style="height:auto; width:auto; max-width: 100%" ng-src="{{result.stamp}}" alt="{{result.topic}}">
+              </div>
+            </div>
+            
           </div>
+
+
         </li>
       </ul>
     </div>

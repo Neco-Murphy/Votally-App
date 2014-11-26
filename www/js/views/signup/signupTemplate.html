@@ -1,8 +1,7 @@
 <ion-view hide-nav-bar=true>
   <ion-content class="votally-back-cream">
     <div class='signup-logo'>
-      <!-- replace with the logo -->
-      <img src="http://i1.kym-cdn.com/entries/icons/original/000/011/365/Grumpy-Cat.jpg">
+      <img src="./img/votally-login-200x200.png">
     </div>
     <form name="signupForm" class="signup-form" novalidate ng-submit="signUp(usernameInput, passwordInput, emailInput)">
       <div class="list">
@@ -46,20 +45,13 @@
 <!-- Confirm Password input and validation -->
         <label class="item item-input">
           <i class="icon ion-key"></i>
-          <input ng-model="confirmInput" name="confirmed" type="password" placeholder=" Confirm Password" ng-minlength=6 ng-maxlength=16 
-            compare-input="passwordInput" required>
+          <input ng-model="confirmInput" name="confirmed" type="password" placeholder=" Confirm Password" compare-input match-target="passwordInput" required>
         </label>
           <div class="error-container" ng-show="signupForm.confirmed.$dirty && signupForm.confirmed.$invalid">
             <small class="error" ng-show="signupForm.confirmed.$error.required">
               Please confirm your password
             </small>
-            <small class="error" ng-show="signupForm.confirmed.$error.minlength">
-              Must contain at least 6 characters
-            </small>
-            <small class="error" ng-show="signupForm.confirmed.$error.maxlength">
-              Exceeds the 16 characters limit
-            </small>
-            <small class="error" ng-show="signupForm.confirmed.$error.compareInput">
+            <small class="error" ng-show="signupForm.confirmed.$error.match">
               Password does not match
             </small>
           </div>
@@ -77,7 +69,7 @@
             </small>
           </div>
         <label class="item">
-          <button class="button button-block button-calm" type="submit">
+          <button class="button button-block button-calm" type="submit" ng-disabled="signupForm.$invalid">
             signup
           </button>
         </label>

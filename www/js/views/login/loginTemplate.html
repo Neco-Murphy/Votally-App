@@ -1,8 +1,7 @@
 <ion-view hide-nav-bar=true>
   <ion-content class="votally-back-cream">
     <div class='login-logo'>
-      <!-- replace with the logo -->
-      <img src="http://i1.kym-cdn.com/entries/icons/original/000/011/365/Grumpy-Cat.jpg">
+      <img src="./img/votally-login-200x200.png">
     </div>
     <form class="login-form" name="loginForm" novalidate ng-submit="logIn(usernameInput, passwordInput)">
       <div class="list">
@@ -30,7 +29,7 @@
             </small>
         </div>
         <label class="item">
-          <button class="button button-block" type="submit">
+          <button class="button button-block" type="submit" ng-disabled="loginForm.$invalid">
             login
           </button>
         </label>

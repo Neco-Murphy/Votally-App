@@ -35,7 +35,12 @@ angular.module('App.Home', [])
 
   //clicking the friend + button routes to addFriendsView 
   $scope.routeToAddFriends = function(){
-    $location.path('/addFriends');
+    $location.path('/add-friends');
+  };
+
+  //clicking the result button routes to resultsView 
+  $scope.routeToResults = function(){
+    $location.path('/results');
   };
 
   //sends to receivers when Send button is pushed
