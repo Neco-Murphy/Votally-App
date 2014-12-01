@@ -1,40 +1,48 @@
-<ion-view title="Friend Requests" >
-  <ion-nav-buttons side="left">
-      <button class="button icon ion-ios7-undo" ng-click="routeBack()">
+<ion-view hide-nav-bar=true class="votally-back-cream">
+  <ion-content class="votally-back-cream">
+    <!-- Title Bar -->
+    <div class="votally-title-bar">
+      <button class="button button-clear icon ion-ios7-undo votally-title-button-left" 
+              ng-click="routeBack()">
       </button>
-  </ion-nav-buttons>
-  <ion-content>
-    <ion-list>
+      <button class="button button-clear votally-title-button-right" >
+      </button>
+      <div class="votally-title-name">
+        <span>Add Friends</span>
+      </div>
+    </div>
 
+
+    <ion-list>
     <!-- Form area to make a new friend request -->
-      <ion-item class="item-divider">
+      <ion-item class="item-divider friend-request-divider votally-back-cream">
         Make A Friend Request
       </ion-item>
-        <form class="item item-input friend-request">
-          <i class="icon ion-paper-airplane placeholder-icon"></i>
-          <input type="text" placeholder="Friend's Name" ng-model="friendName">
-          <button class="button button-calm button-small"
-                  type="button"
-                  ng-click = "makeRequest(friendName)">
-            Make Request
-          </button>
-        </form>
+      <form class="item item-input friend-request votally-back-cream">
+        <i class="icon ion-person-add placeholder-icon add-friend-icon"></i>
+        <input type="text" placeholder="Friend's Name" ng-model="friendName">
+        <button class="button button-small"
+                type="button"
+                ng-click = "makeRequest(friendName)">
+          Make Request
+        </button>
+      </form>
       <ion-item ng-show="responseExists()">
         {{requestResponse}}
       </ion-item>
 
       <!-- List of all pending friend requests -->
-      <ion-item class="item-divider">
+      <ion-item class="item-divider friend-request-divider votally-back-cream">
         You have {{requestersAmount}} pending friend {{sentenceEnd}}
       </ion-item>
-      <ion-item ng-repeat="requester in allRequesters">
+      <ion-item class="friend-name" ng-repeat="requester in allRequesters">
           {{requester.requesterName}}
-          <button class="button button-balanced button-small"
+          <button class="button button-small button-accept-decline votally-back-green"
                   type="button"
                   ng-click = "acceptFriend(requester.requesterId, $index)">
             Accept
           </button>
-          <button class="button button-assertive button-small"
+          <button class="button button-small button-accept-decline votally-back-red"
                   type="button"
                   ng-click = "declineFriend(requester.requesterId, $index)">
             Decline
@@ -42,8 +50,4 @@
       </ion-item>
     </ion-list>
   </ion-content>
-
-  <!-- Footer just for looks -->
-  <ion-footer-bar class="bar-dark">
-  </ion-footer-bar>
 </ion-view>

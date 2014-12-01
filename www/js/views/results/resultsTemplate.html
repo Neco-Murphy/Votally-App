@@ -1,21 +1,10 @@
-<ion-view hide-nav-bar=true>
-  <!-- <ion-nav-bar class="votally-back-cream">
-    <h1 class="title">
-      <i class="icon ion-stats-bars"></i>
-      Results
-    </h1>
-    <ion-nav-buttons side="left">
-      <button class="button icon ion-ios7-undo" ng-click="routeToHome()">
-      </button>
-    </ion-nav-buttons>
-  </ion-nav-bar>
- -->
-  
-  <ion-content class="votally-back-cream">
-    <button class="button button-clear icon ion-ios7-undo" style="float: left; display: inline;" ng-click="routeToHome()">
-    </button>
-    <div class="sender-name"><span>Results</span></div>
-   
+<ion-view hide-nav-bar=true class="votally-back-cream">  
+  <ion-content on-swipe-right="routeToHome()">
+    <div class="votally-title-bar">
+      <div class="votally-title-name">
+        <span>Results</span>
+      </div>
+    </div>   
     <div class="polaroid_box">
       <ul class="polaroids">
         <li class="polaroids row" ng-repeat="result in results">
@@ -35,9 +24,12 @@
                 </div>
                 
                 <div class="grid">
+
+                  <div class="answerNumbers"> Yes: {{result.yes}} No: {{result.no}}</div>
                   <div class="{{result.yesbarclass}}"><div class="inner votally-back-green"></div></div>
                   <div class="{{result.nobarclass}}"><div class="inner votally-back-red"></div></div>
 
+      
                   <div id="scale">
                     <p class="zero">0%</p>
                     <p class="two">50%</p>

@@ -1,17 +1,36 @@
-<ion-view hide-nav-bar=true title="Receivers" >
+<ion-view hide-nav-bar=true title="Receivers" class="votally-back-cream">
   <ion-content>
-    <!--sets up the main div where the camera image will reside
-    is swipable to bring to bring to pending(swiperight) and results(swipeleft) -->
-    <ion-list>
-      <ion-item ng-repeat="receiver in allReceivers"
-                ng-class="{selected: isSelected(receiver)}"
-                ng-click="select(receiver)">
-          {{receiver.username}}
-      </ion-item>
-    </ion-list>
+    <!-- Title Bar -->
+    <div class="votally-title-bar">
+      <div class="votally-title-name">
+        <span>Send To</span>
+      </div>
+    </div>
+      <ion-list class="receivers-list">
+        <ion-item ng-repeat="receiver in allReceivers"
+                  ng-class="{selected: isSelected(receiver)}"
+                  ng-click="select(receiver)">
+            {{receiver.username}}
+        </ion-item>
+      </ion-list>
   </ion-content>
   <!-- Footer which contains a button to make the final send -->
-  <ion-footer-bar class="bar-dark">
+  <div class="bar votally-footer votally-back-cream">
+      <div class="footer-left">
+        <button class="button button-assertive cancel" ng-click="cancelSend()">
+          Cancel
+        </button>
+      </div>
+      <div class="footer-center">
+      </div>
+      <div class="footer-right">
+        <button class="button button-dark send" ng-click="setReceivers()">
+          Send
+        </button>
+      </div>
+    </div>
+
+<!--   <div class="bar home-footer votally-back-cream">
       <button class="button button-stable button-assertive button-outline"
             ng-click="cancelSend()">
         Cancel
@@ -21,5 +40,5 @@
             ng-click="setReceivers()">
         Send
     </button>
-  </ion-footer-bar>
+  </ion-footer-bar> -->
 </ion-view>

@@ -1,93 +1,55 @@
-
-
-  <ion-side-menus>
+<ion-side-menus>
   <!-- Center content -->
-    <ion-side-menu-content>
-      <ion-view hide-nav-bar=true>
-
-
-        <!-- <ion-nav-bar>
-          <ion-nav-buttons side="left">
-            <button class="button icon ion-navicon-round" menu-toggle="left"></button>
-           
-          </ion-nav-buttons>
-          <ion-nav-buttons side="right">
-            <button class="button icon ion-person-add" ng-click="routeToAddFriend()"></button>
-          </ion-nav-buttons>
-        </ion-nav-bar> -->
-
-      
-    
-
-
-        <ion-content on-swipe-left="swiping('left')" class="votally-back-cream">
-          <button class="button button-clear icon ion-navicon-round" menu-toggle="left" style="float: left; display: inline;">
+  <ion-side-menu-content>
+    <ion-view hide-nav-bar=true class="votally-back-cream">
+      <ion-content on-swipe-left="swiping('left')">
+        <div class="votally-title-bar">
+          <button class="button button-clear icon ion-navicon-round votally-title-button-left" 
+                  menu-toggle="left">
           </button>
 
-          <button class="button button-clear icon ion-person-add" menu-toggle="left" style="float: right; display: inline;" ng-click="routeToAddFriend()">
+          <button class="button button-clear icon ion-person-add votally-title-button-right" 
+                  ng-click="routeToAddFriend()">
           </button>
-          <div class="sender-name"><span>My Friends</span></div>
-
-
-
-          <div class="friend-search">
-            <label class="item item-input">
-              <i class="icon ion-search placeholder-icon"></i>
-              <input type="text" placeholder="Search Friends" ng-model="friendSearch">
-            </label>
+          <div class="votally-title-name">
+            <span>My Friends</span>
           </div>
-          
-          <ion-list>
-            <ion-item ng-repeat="friend in allFriends | filter: friendSearch">
-                {{friend.username}}
-            </ion-item>
-          </ion-list>
-          <!--sets up the main div where the camera image will reside
-          is swipable to bring to bring to pending(swiperight) and results(swipeleft) -->
-          
-        </ion-content>
-
-
-
-
-
-        <!-- Actual Footer which contains an icon for taking pictures and 
-        contains upload and send buttons -->
-      <!--   <ion-footer-bar class="bar-dark">
-          <button class="button button-stable button-calm button-outline"
-                  ng-click="getPhoto('uploadPicture')">
-            Upload
-          </button>
-          <h1 class="title"><div class="ion-ios7-camera shutter" ng-click="getPhoto('takePicture')"></div></h1>
-          <button class="button button-stable button-balanced button-outline"
-                  ng-click="send()">
-            Send
-          </button>
-        </ion-footer-bar> -->
-        <!-- DONT THINK WE NEED THIS FOOTER BAR<ion-footer-bar class="bar-dark">
-        </ion-footer-bar> --> 
-      </ion-view>
-    </ion-side-menu-content>
-
-    <!-- Left menu -->
-    <ion-side-menu side="left" ng-controller="SettingsController">
-      <ion-header-bar class="bar-dark">
-        <h1 class="title">Settings</h1>
-      </ion-header-bar>
-      <ion-content scroll=false>
+        </div>
+        <div class="friend-search">
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Search Friends" ng-model="friendSearch">
+          </label>
+        </div>
+        
         <ion-list>
-          <ion-item class="item" ng-repeat="setting in Settings"
-                    ng-click="setting.hovers && setting.action()"
-                    ng-class="{settings: setting.isDivider, highlight: setting.hovers && hover}"
-                    
-                    ng-mouseenter="hover = true"
-                    ng-mouseleave="hover = false">
-              {{setting.title}}
+          <ion-item ng-repeat="friend in allFriends | filter: friendSearch">
+              {{friend.username}}
           </ion-item>
         </ion-list>
+        <!--sets up the main div where the camera image will reside
+        is swipable to bring to bring to pending(swiperight) and results(swipeleft) -->
+        
       </ion-content>
-        <ion-footer-bar class="bar-dark">
-        </ion-footer-bar>
-    </ion-side-menu>
+    </ion-view>
+  </ion-side-menu-content>
 
-  </ion-side-menus>
+  <!-- Left menu -->
+  <ion-side-menu side="left" ng-controller="SettingsController">
+    <ion-content scroll=false>
+      <div class="setting-bar">
+        Settings
+      </div>
+      <ion-list>
+        <ion-item class="item" ng-repeat="setting in Settings"
+                  ng-click="setting.hovers && setting.action()"
+                  ng-class="{divider: setting.isDivider, highlight: setting.hovers}">
+            {{setting.title}}
+        </ion-item>
+      </ion-list>
+    </ion-content>
+<!--         <ion-footer-bar class="bar-dark">
+      </ion-footer-bar> -->
+  </ion-side-menu>
+
+</ion-side-menus>

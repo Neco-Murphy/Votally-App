@@ -36,60 +36,224 @@
   background-color: #F7EAC8;
 }
 
+.votally-back-nav-color{
+  background-color: #EDD5B2;
+}
+
+.votally-back-orange{
+  background-color: #f7bd7a;
+}
+
 .bar-footer{
   height: 55px;
 }
 
 .shutter{
-  font-size: 40px;
+  font-size: 60px;
   color: #aaa;
 }
 
-/*============FOR HOME VIEW TEMPLATE=============*/
-
-.home-header{
- border: none;
- height: 50px;
+/*============FOR TITLE BARS=============*/
+.votally-title-bar{
+  background-color: #edd5b2;
+  height: 55px;
 }
 
-.home-header div.title{
- height: 50px;
- padding: 10px;
+.votally-title-bar button{
+  font-family: 'Josefin Sans', sans-serif;
+  margin-top: 4px;
 }
 
-.home-header i{
+.votally-title-button-left {
+  float: left;
+  display: inline;
+}
+
+.votally-title-button-right {
+  float: right;
+  display: inline;
+}
+
+.votally-title-button-left.button-clear.button-clear, 
+.votally-title-button-right.button-clear.button-clear {
+  color: #35404F;
+}
+
+.votally-title-name{
+  text-align: center;
+  height: 55px;
+  line-height: 55px;
+  font-size: 30px;
+  color: #35404f;
+  font-weight: bold;
+}
+
+.votally-title-bar i{
   color: #FFF;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.votally-title-bar-left {
+  width: 35%;
+  float: left;
+  /*margin-left: 2px;*/
+  padding: 9px 0 0 4px;
+}
+
+.votally-title-bar-right {
+  width: 35%;
+  float: right;
+  padding-top: 9px;
+}
+
+.votally-title-bar-center {
+  width: 30%;
+  float: left;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.votally-title-bar .pending-number {
+  color: #FFF;
+  font-size: 24px;
+  line-height: 24px;
+  padding: 2px 14px;
+}
+
+.votally-button-blue{
+  border: 1px solid #35404f;
+  color: #fff;
+}
+
+/*============FOR FOOTER BARS=============*/
+.votally-footer{
+  padding: 5px;
+  height: 70px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.votally-footer .footer-left{
+  width: 25%;
+}
+
+.votally-footer .footer-center{
+  width: 50%;
+  text-align: center;
+}
+
+.votally-footer .footer-right{
+  width: 25%;
+}
+
+.votally-footer button{
+  margin: 8px 10px 8px 10px;
+  width: 70px;
+}
+
+.votally-footer .upload{
+  float: left;
+  background-color: #35404F;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #fff;
+  border-radius: 8px;
+  border-color: #35404F;
+  max-height: 70px;
+}
+
+.votally-footer .send{
+  float: right;
+  background-color: #1FDA9A;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #fff;
+  border-radius: 8px;
+  border-color: #1FDA9A;
+  max-height: 70px;
+}
+
+.votally-footer .camera{
+  overflow: visible;
+  margin: 0 auto;
+  max-height: 70px;
+}
+
+.votally-footer .cancel{
+  float: left;
+  background-color: #db3340;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #fff;
+  border-radius: 8px;
+  border-color: #db3340;
+  max-height: 70px;
+}
+
+
+/*============FOR HOME VIEW TEMPLATE=============*/
+.home-notification {
+  padding: 0;
+  border: 0;
+  min-width: 44px;
 }
 
 .polaroid-container{
-  margin-top:50px;
-  padding: 8px;
+  padding: 0;
+  padding-top: 6px;
+  position: absolute;
+  top: 55px;
+  bottom: 70px;
+  width: 100%;
+  overflow: auto;
 }
 
-.home-polaroid div{
+.home-polaroid{
+  height: 100%;
+}
+
+.home-image-text-container{
+  height: 100%;
+  width: 96%;
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
   background: #fff;
-  margin: 0 10px 20px 10px;
-  padding: 10px 10px 20px 10px;
+  margin: 0 2% 0 2%;
+  padding: 4% 4% 2% 4%;
   -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
   -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
 }
 
-#myImage {
+.home-image-container {
+  position: absolute;
+  top: 4%;
+  bottom: 60px;
   width: 100%;
+  overflow: auto;
+}
+
+#myImage {
+  width: 92%;
   background-color: #000;
   display: block;
-  height: 360px;
-  margin: 10px 10px 0px 0px;
+  height: 100%;
 }
 
 .polaroid-text{
-  margin-top: 10px;
+  /*margin-top: 6px;*/
+  padding: 14px 0 0 2px;
   border: none;
+  position: absolute;
+  bottom: 0;
+  min-height: 60px;
+  width: 92%;
 }
 
 .polaroid-text input{
+  min-height: 17px;
+  line-height: 17px;
   font-size: 17px;
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -99,14 +263,7 @@
     outline: none;
 }
 
-.home-footer{
-  height: 70px;
-}
 
-.home-footer button{
-  margin:0 30px 30px 30px;
-  width: 60px;
-}
 
 .votally{
   font-family: 'Righteous';
@@ -116,16 +273,16 @@
 
 .sender-name{
   text-align: center;
-  margin: 20px;
+  margin: 10px;
   padding: 10px;
-  height: 34px;
+  height: 30px;
   font-size: 30px;
 }
 
 .pending-polaroid a {
   background: #fff;
   display: block;
-  margin: 30px;
+  margin: 20px 30px 30px 30px;
   padding: 10px;
   text-align: center;
   font-family: "Marker Felt", sans-serif;
@@ -151,25 +308,62 @@
 
 #pending-skip{
   font-family: 'Josefin Sans', sans-serif;
+  margin-top: 10px;
+}
+
+.pending-footer{
+  height: 60px;
 }
 
 .pending-button{
   font-family: 'Josefin Sans', sans-serif !important;
   font-weight: bold !important;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 5px;
+  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+  -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
 }
 
-.no-button{
-  color: #DB3340 !important;
+.pending-button i{
+ color: #FFFFFF;
 }
 
-.yes-button{
-  color: #1FDA9A !important;
+#no-button{
+  background-color: #DB3340;
+  margin-left: 10px;
+  color: #FFFFFF;
+}
+
+#no-button:active{
+  background-color: #f78585;
+}
+
+
+#yes-button{
+  background-color: #1FDA9A;
+  margin-right: 10px;
+  color: #FFFFFF;
+}
+
+#yes-button:active{
+  background-color: #81f4c8;
 }
 
 /*============FOR RECEIVERS VIEW TEMPLATE=============*/
 .selected {
-  background-color: #000;
-  color: #fff;
+  background-color: #dbf9e0;
+  color: #35404f;
+  font-weight: bold;
+  border: 1px solid #1fda9a;
+}
+
+.receivers-list {
+  position: relative;
+}
+
+.receivers-list .activated {
+  background-color: #1fda9a;
 }
 
 /*============FOR SIGNUP VIEW TEMPLATE=============*/
@@ -180,6 +374,120 @@
 .error {
   color: red;
   padding-left: 15px;
+}
+
+/*============FOR FRIENDS TEMPLATE=============*/
+.friend-search input{
+  margin: 10px 20px 10px 8px;
+  /*margin-right: 20px;*/
+  width: 90%;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.friend-search label{
+  background-color: #F7EAC8; /*votally-cream*/
+  border: none;
+  padding: 0;
+  padding-left: 18px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.friend-search i{
+  font-size: 20px;
+}
+
+/*============FOR SETTINGS VIEW=============*/
+.setting-bar {
+  background-color: #35404F;
+  height: 36px;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.setting-title {
+  font-size: 16px;
+  line-height: 16px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.highlight {
+  background-color: #fefafa;
+  color: #db3340;
+  font-weight: bold;
+  border: 1px solid #db3340;
+}
+.divider {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-height: 30px;
+  background-color: #edd5b2;
+  color: #35404f;
+  font-weight: bold;
+}
+
+/*============FOR ADD FRIENDS VIEW=============*/
+.friend-request {
+  padding-right: 12px;
+  line-height: 24px;
+  border-top: none;
+}
+
+.friend-request-divider {
+  border: 0;
+  font-size: 14px;
+}
+
+.add-friend-icon {
+  font-size: 24px;
+  color: #35404f;
+}
+
+.friend-request input{
+  margin: 5px 15px 10px 5px;
+  /*margin-right: 20px;*/
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  font-family: 'Josefin Sans', sans-serif;
+  -webkit-flex: 1 0 150px;
+  -moz-flex: 1 0 150px;
+  -ms-flex: 1 0 150px;
+  flex: 1 0 150px;
+}
+
+.friend-request button {
+  min-height: 34px;
+  background-color: #1fda9a;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  position: relative;
+  top: -2px;
+}
+
+.friend-name {
+  line-height: 31px;
+}
+
+.button-accept-decline {
+  color: #35404f;
+  width: 52px;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+  margin: 0 8px;
+  border: none;
 }
 
 /*============FOR RESULTS VIEW TEMPLATE=============*/
@@ -269,15 +577,12 @@ li.polaroids {
   top: 3px;
 }
 
-
-
 .polaroidframe {
   clear:left ;
   width: 50%;
   height: 50%;
   position: relative;
   float:left;
-
 }
 
 .yesnocontainer {
@@ -547,6 +852,10 @@ body {
   position: relative;
   width: 98%;  
 }
+.answerNumbers {
+  text-align: center;
+  padding: 0 0 5px;
+}
 
 #apps {
   float: left;
@@ -555,7 +864,8 @@ body {
 }
 
 #apps p {
-  padding: 10.5px 0;
+  margin: 25px 0px 0px 0px;
+  padding: 0px 0px;
   position: relative;
   text-align: right;
   z-index: 2;
@@ -575,8 +885,8 @@ body {
     left: -0.30%;
 }
 
-#scale p.two { left: 49%; }
-#scale p.four { left: 99%; }
+#scale p.two { left: 45%; }
+#scale p.four { left: 89%; }
 
 .grid {
   border-left: 1px dotted #e8ab6a;
@@ -731,8 +1041,6 @@ body {
   right: 100%;
 }
 
-
-
 .v-divider {
   border-right: 1px dotted #f0c89d;
   position: absolute;
@@ -746,42 +1054,14 @@ body {
 .v-divider.one { right: 75%; }
 .v-divider.two { right: 50%; }
 
-
-
-
-
-
-/*============FOR SETTINGS VIEW=============*/
-
-.highlight {
-  background-color: #888;
-  color: #fff;
-  font-weight: bold;
-}
-.settings {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  min-height: 30px;
-  background-color: #f5f5f5;
-  color: #222;
-  font-weight: bold;
-}
-
-/*============FOR ADD FRIENDS VIEW=============*/
-.friend-request {
-  padding-right: 12px;
-}
-
-
-/*.inline-button {
-  float: left;
-  clear: both;
-}*/
-
 /*============FOR LOGIN & SIGNUP VIEW=============*/
 .login-logo, .signup-logo{
-  margin: 20px;
+  margin: 70px 0px 30px 0px;
   text-align: center;
+}
+
+.login-logo img, .signup-logo img{
+  width: 260px;
 }
 
 .login-form input, .signup-form input{
@@ -813,28 +1093,14 @@ body {
   color: #FFFFFF;
 }
 
-.login-form button.sign-up{
-  background-color: #f7bd7a; /*votally-cream*/
+.login-form label.login-signup{
+  padding-top: 30px;
+  text-align: center;
 }
 
-/*============FOR FRIENDS VIEW=============*/
-
-
-.friend-search input{
-  margin: 5px;
-  margin-right: 20px;
-  width: 90%;
-  padding: 10px;
-  background-color: #FFFFFF;
-  border-radius: 10px;
-  font-family: 'Josefin Sans', sans-serif;
+.login-form button.signup, .signup-form button.signup{
+  background-color: #f7bd7a; /*votally-orange*/
 }
 
 
-.friend-search label{
-  background-color: #F7EAC8; /*votally-cream*/
-  border: none;
-  padding: 0;
-  padding-left: 20px;
-  font-family: 'Josefin Sans', sans-serif;
-}
+

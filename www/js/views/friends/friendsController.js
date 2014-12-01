@@ -1,6 +1,6 @@
 angular.module('App.Friends', [])
 
-.controller('FriendsController', function($scope, $window, $location, $ionicSideMenuDelegate, ReceiversFactory, ServerRequests, ServerRoutes, Auth){
+.controller('FriendsController', function($scope, $window, $location, $ionicSideMenuDelegate, FriendsFactory, ReceiversFactory, ServerRequests, ServerRoutes, Auth){
 
   $scope.swiping = function(direction){
     if (direction === 'left'){
@@ -12,10 +12,6 @@ angular.module('App.Friends', [])
     $location.path('/add-friends');
   }
 
-  // $scope.showSettings = function(){
-  //   $location.path('/settings');
-  // }
-
   $scope.toggleSettings = function() {
     $ionicSideMenuDelegate.toggleLeft();
   };
@@ -23,6 +19,7 @@ angular.module('App.Friends', [])
   //get the userId from local storage
   var userId = $window.localStorage.getItem('userId');
 
+  //get a list of all friends
   ServerRequests.post({ userId: userId }, ServerRoutes.getReceivers)
       .then(function(response){
         $scope.allFriends = response.receivers;
@@ -30,5 +27,4 @@ angular.module('App.Friends', [])
       .catch(function(error){
           console.log(error);
       });
-
 })

@@ -2,8 +2,10 @@
 
 angular.module('App.Settings', [])
 
-.controller('SettingsController', function($scope, $window, $location, Auth, ServerRequests, ServerRoutes){ //Auth, ServerRequests, ServerRoutes are factories
+.controller('SettingsController', function($scope, $window, $location, Auth, FriendsFactory, ServerRequests, ServerRoutes){ //Auth, ServerRequests, ServerRoutes are factories
   var userId = $window.localStorage.getItem('userId');
+
+  var userInfo = FriendsFactory.userInfo;
 
   //a list that populates the settings, and the appropriate action to take when clicked upon
   $scope.Settings = [
@@ -14,14 +16,14 @@ angular.module('App.Settings', [])
         return;
       }
     },
-    { title: 'Username',
+    { title: 'Username: ' + userInfo.username,
       isDivider: false,
       hovers: false,
       action: function(){
         return;
       }
     },
-    { title: 'Email',
+    { title: 'Email: ' + userInfo.email,
       isDivider: false,
       hovers: false,
       action: function(){

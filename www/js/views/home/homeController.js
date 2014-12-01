@@ -7,7 +7,7 @@ angular.module('App.Home', [])
     .imgSrcSanitizationWhitelist(/^\s*(https?|blob|cdvfile|content|ftp|mailto|file|tel):|data:image\//);
 })
 
-.controller('HomeController', function($scope, $location, $window, ReceiversFactory, Auth, Camera, HomeFactory) {
+.controller('HomeController', function($scope, $location, $window, ReceiversFactory, Auth, Camera, HomeFactory, FriendsFactory) {
 
   var userId = $window.localStorage.getItem('userId');
 
@@ -81,6 +81,12 @@ angular.module('App.Home', [])
     $scope.hasFriendRequest = data.friendRequestCount;
     $scope.resultCompleteCount = data.resultCompleteCount;
   });
+
+  //get and store the username/email of user in FriendsFactory
+  //(should happen only on first opening of app)
+  if (Auth.loggedIn() === 'true' && !FriendsFactory.userInfo.username && !FriendsFactory.userInfo.email){
+    FriendsFactory.getUsername(userId);
+  }
 
 });
 

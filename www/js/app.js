@@ -22,6 +22,7 @@ angular.module('App', [
   'App.Signup',
   //Factories
   'App.AddFriendsFactory',
+  'App.FriendsFactory',
   'App.ServerRequests',
   'App.ServerRoutes',
   'App.Auth',

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <ion-view hide-nav-bar=true>
   <ion-content scroll=false class="votally-back-cream">
 
@@ -10,27 +11,53 @@
       </button>
       <div class="title">
         <img src="./www/img/logo-40px-y.png">
+=======
+<ion-view hide-nav-bar=true class="votally-back-cream">
+  <ion-content scroll=false>
+    <div class="votally-title-bar">
+      <div class="votally-title-bar-left">
+        <button class="button button-clear votally-title-button-left home-notification ng-hide"
+                ng-click="routeToAddFriends()"
+                ng-show="hasFriendRequest">
+          <span class="badge votally-back-green">
+            <i class="ion-person-add"></i>
+          </span>
+        </button>
+        <button class="button button-clear votally-title-button-left home-notification ng-hide"
+                ng-click="routeToResults()" 
+                ng-show="resultCompleteCount">
+          <span class="badge votally-back-orange">
+            <i class="ion-paper-airplane"></i>
+          </span>
+        </button>
       </div>
-      <button class="button button-clear" ng-click="routeToResults()" ng-show="resultCompleteCount">
-        <span class="badge votally-back-green">
-          <i class="ion-paper-airplane"></i>
-        </span>
-      </button>
-      <button class="button button-clear pull-right" ng-click="routeToPending()" ng-show="pendingCount">
-        Pending 
-        <span class="badge badge-calm">
-          {{pendingCount}}
-        </span>
-      </button>
+      <div class="votally-title-bar-right">
+        <button class="button button-clear votally-title-button-right ng-hide"
+                ng-click="routeToPending()"
+                ng-show="pendingCount">
+          Pending 
+          <span class="badge badge-calm pending-number">
+            {{pendingCount}}
+          </span>
+        </button>
+      </div>
+      <div class="votally-title-bar-center">
+        <div class="votally-title-name">
+          <img src="./img/logo-40px-y.png">
+        </div>
+>>>>>>> b5bf6ba56d8c0195b344dd7f16737a26db2750e9
+      </div>
     </div>
 
     <!--sets up the polaroid div where the camera image will reside
     is swipable to pending(swiperight) and results(swipeleft) -->
     <div class="polaroid-container" on-swipe-right="swiping('right')" on-swipe-left="swiping('left')">
       <div class="home-polaroid">
-        <div>
-          <img id="myImage">
-          <label class="item item-input polaroid-text">
+        <div class="home-image-text-container">
+          <div class="home-image-container">
+            <img id="myImage">
+          </div>
+          <form class="polaroid-text">
             <input type="text" placeholder="Touch to add message..."
                    ng-model="homeText"
                    ng-change="addText(homeText)"
@@ -42,20 +69,22 @@
 
     <!-- Footer which contains an icon for taking pictures and 
     contains upload and send buttons -->
-    <div class="bar bar-footer home-footer votally-back-cream">
-      <button class="button button-outline button-calm"
-              ng-click="getPhoto('uploadPicture')">
-        Upload
-      </button>
-      <div class="title">
-        <button class="button button-clear" ng-click="getPhoto('takePicture')">
-        <div class="ion-ios7-camera shutter"></div>
+    <div class="bar votally-footer votally-back-cream">
+      <div class="footer-left">
+        <button class="button button-balanced upload" ng-click="getPhoto('uploadPicture')">
+          Upload
         </button>
       </div>
-      <button class="button button-balanced button-outline"
-              ng-click="send()">
-        Send
-      </button>
+      <div class="footer-center">
+        <button class="button button-clear camera" ng-click="getPhoto('takePicture')">
+          <div class="ion-ios7-camera shutter camera"></div>
+        </button>
+      </div>
+      <div class="footer-right">
+        <button class="button button-dark send" ng-click="send()">
+          Send
+        </button>
+      </div>
     </div>
 
   </ion-content>
