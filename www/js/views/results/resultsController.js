@@ -47,7 +47,7 @@ angular.module('App.Results', [])
       for(var recent = response.length - 1; recent >= 0 ; recent--){
         //set correct stamp
         if(response[recent].yes > response[recent].no){
-          response[recent].stamp = './www//img/yesstamp.png'
+          response[recent].stamp = './www/img/yesstamp.png'
         } else{
           response[recent].stamp = './www/img/nostamp.png'
         }
