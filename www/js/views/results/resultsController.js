@@ -47,9 +47,9 @@ angular.module('App.Results', [])
       for(var recent = response.length - 1; recent >= 0 ; recent--){
         //set correct stamp
         if(response[recent].yes > response[recent].no){
-          response[recent].stamp = './img/yesstamp.png'
+          response[recent].stamp = './www//img/yesstamp.png'
         } else{
-          response[recent].stamp = './img/nostamp.png'
+          response[recent].stamp = './www/img/nostamp.png'
         }
 
         var yesPercent =(response[recent].yes /(response[recent].yes + response[recent].no)) *100;
